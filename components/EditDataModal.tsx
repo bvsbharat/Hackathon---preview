@@ -44,7 +44,7 @@ const EditableCell: React.FC<{
         onChange={(e) => setCurrentValue(e.target.value)}
         onBlur={handleSave}
         onKeyDown={handleKeyDown}
-        className="bg-gray-900 text-white w-full border-0 rounded-sm outline-none ring-2 ring-cyan-500 p-1 text-sm"
+        className="bg-white text-gray-900 w-full border border-gray-300 rounded-sm outline-none ring-2 ring-teal-500 p-1 text-sm"
       />
     );
   }
@@ -52,7 +52,7 @@ const EditableCell: React.FC<{
   return (
     <div
       onClick={() => setIsEditing(true)}
-      className="cursor-text w-full h-full p-1 -m-1 rounded-sm hover:bg-gray-700/50 transition-colors truncate"
+      className="cursor-text w-full h-full p-1 -m-1 rounded-sm hover:bg-gray-100 transition-colors truncate"
       title={String(value)}
     >
       {String(value)}
@@ -151,24 +151,24 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
   const handleSave = () => onSave(projects);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4" onClick={onClose}>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4" onClick={onClose}>
       <div 
-        className="bg-gray-800 rounded-lg shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col"
+        className="bg-white rounded-lg shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex justify-between items-center p-4 border-b border-gray-700 flex-shrink-0">
-          <h2 className="text-xl font-bold text-white">Edit Project Data</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
+        <header className="flex justify-between items-center p-4 border-b border-gray-200 flex-shrink-0">
+          <h2 className="text-xl font-bold text-gray-900">Edit Project Data</h2>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors">
             <CloseIcon className="w-6 h-6" />
           </button>
         </header>
         <div className="p-6 flex-grow flex flex-col overflow-hidden">
-          <p className="text-gray-400 mb-4 text-sm flex-shrink-0">
+          <p className="text-gray-500 mb-4 text-sm flex-shrink-0">
             Edit project data below. Your changes will be saved in your browser's local storage.
           </p>
-          <div className="flex-grow overflow-auto custom-scrollbar border border-gray-700 rounded-md">
-            <table className="min-w-full text-sm text-left text-gray-300">
-                <thead className="text-xs text-gray-400 uppercase bg-gray-700/50 sticky top-0">
+          <div className="flex-grow overflow-auto custom-scrollbar border border-gray-200 rounded-md">
+            <table className="min-w-full text-sm text-left text-gray-700">
+                <thead className="text-xs text-gray-500 uppercase bg-gray-100 sticky top-0">
                     <tr>
                         {projectColumns.map(({ key, label }) => (
                            <th key={key} scope="col" className="px-4 py-3 whitespace-nowrap">{label}</th>
@@ -176,9 +176,9 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
                         <th scope="col" className="px-4 py-3"><span className="sr-only">Actions</span></th>
                     </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-700">
+                <tbody className="divide-y divide-gray-200">
                     {projects.map((project, projectIndex) => (
-                        <tr key={project.id} className="hover:bg-gray-700/50">
+                        <tr key={project.id} className="hover:bg-gray-50">
                            {projectColumns.map(({ key, type }) => (
                             <td key={key} className="px-2 py-1 align-top">
                                 <EditableCell 
@@ -189,7 +189,7 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
                             </td>
                            ))}
                            <td className="px-4 py-2 text-center align-middle">
-                                <button onClick={() => handleDeleteRow(projectIndex)} className="text-gray-500 hover:text-red-500 transition-colors">
+                                <button onClick={() => handleDeleteRow(projectIndex)} className="text-gray-400 hover:text-red-500 transition-colors">
                                     <TrashIcon className="w-5 h-5"/>
                                 </button>
                            </td>
@@ -199,12 +199,12 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
             </table>
           </div>
           <div className="mt-4 flex-shrink-0">
-            <button onClick={handleAddRow} className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors text-sm font-semibold">
+            <button onClick={handleAddRow} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors text-sm font-semibold">
                 + Add Project
             </button>
           </div>
         </div>
-        <footer className="flex justify-between items-center p-4 border-t border-gray-700 flex-shrink-0">
+        <footer className="flex justify-between items-center p-4 border-t border-gray-200 flex-shrink-0">
           <div className="flex items-center space-x-2">
             <button
               onClick={onReset}
@@ -215,7 +215,7 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
             </button>
             <button
               onClick={handleImportClick}
-              className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
               aria-label="Import data from CSV"
             >
               <UploadIcon className="w-5 h-5" />
@@ -232,13 +232,13 @@ const EditDataModal: React.FC<EditDataModalProps> = ({ initialProjects, onSave, 
           <div className="space-x-4">
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+              className="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-6 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition-colors font-semibold"
+              className="px-6 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors font-semibold"
             >
               Save Changes
             </button>

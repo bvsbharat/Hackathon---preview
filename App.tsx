@@ -85,28 +85,28 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col p-4 md:p-8">
+    <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col p-4 md:p-8">
       <header className="w-full max-w-7xl mx-auto mb-8">
         <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <LogoIcon className="h-10 w-10 text-cyan-400" />
+              <LogoIcon className="h-10 w-10 text-teal-500" />
               <div>
-                <h1 className="text-3xl font-bold tracking-tight text-white">Hackathon Finals Review</h1>
-                <p className="text-gray-400">Ranked project submissions</p>
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">Hackathon Finals Review</h1>
+                <p className="text-gray-500">Ranked project submissions</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center bg-gray-800 rounded-lg p-1">
+              <div className="flex items-center bg-gray-200 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-colors duration-200 ${viewMode === 'grid' ? 'bg-cyan-600 text-white' : 'text-gray-400 hover:bg-gray-700'}`}
+                  className={`p-2 rounded-md transition-colors duration-200 ${viewMode === 'grid' ? 'bg-teal-500 text-white' : 'text-gray-500 hover:bg-gray-300'}`}
                   aria-label="Grid view"
                 >
                   <GridViewIcon className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('table')}
-                  className={`p-2 rounded-md transition-colors duration-200 ${viewMode === 'table' ? 'bg-cyan-600 text-white' : 'text-gray-400 hover:bg-gray-700'}`}
+                  className={`p-2 rounded-md transition-colors duration-200 ${viewMode === 'table' ? 'bg-teal-500 text-white' : 'text-gray-500 hover:bg-gray-300'}`}
                   aria-label="Table view"
                 >
                   <TableViewIcon className="h-5 w-5" />
@@ -115,7 +115,7 @@ const App: React.FC = () => {
 
               <button
                 onClick={() => setIsEditModalOpen(true)}
-                className="flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-colors duration-200 border border-gray-300 shadow-sm"
                 aria-label="Edit project data"
               >
                 <EditIcon className="h-5 w-5" />
@@ -137,7 +137,7 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="w-full max-w-7xl mx-auto mt-8 text-center text-gray-500 text-sm">
+      <footer className="w-full max-w-7xl mx-auto mt-8 text-center text-gray-400 text-sm">
         <p>Built for an amazing hackathon experience.</p>
       </footer>
 
