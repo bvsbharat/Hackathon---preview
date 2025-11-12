@@ -1,0 +1,5 @@
+{
+  "name": "Hackathon Project Review",
+  "description": "An application to review hackathon project submissions, featuring a timeline view of video demos and detailed project information.",
+  "requestFramePermissions": []
+}
